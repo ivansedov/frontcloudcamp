@@ -230,11 +230,17 @@ fieldset {
 
 .form__btn-toggle {
   position: absolute;
-  top: 40px;
+  top: 28px;
   right: 16px;
   z-index: 1;
+  height: 44px;
   opacity: .6;
+  width: 44px;
   transition: .5s ease;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.active {
     opacity: 1;
