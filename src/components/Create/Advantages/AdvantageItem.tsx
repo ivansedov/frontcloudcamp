@@ -8,6 +8,7 @@ interface AdvantageItemProps {
   errors: any;
   remove: (index?: number | number[] | undefined) => void;
   isSubmitted: boolean;
+  watch: any;
 }
 
 export const AdvantageItem: React.FC<AdvantageItemProps> = ({
@@ -16,22 +17,20 @@ export const AdvantageItem: React.FC<AdvantageItemProps> = ({
   register,
   errors,
   remove,
+  watch,
   isSubmitted,
 }) => {
+  const fieldValue = watch(`advantages.${index}.value`);
+
   const error =
     errors.advantages &&
     Array.isArray(errors.advantages) &&
     errors.advantages[index];
-  const isTouched = isSubmitted || error;
 
-  const isEmpty = field.value === '';
-  const inputClass = error
-    ? 'invalid'
-    : isEmpty
-    ? ''
-    : isTouched
-    ? 'valid'
-    : '';
+  const isTouched = isSubmitted || error;
+  const isEmpty = fieldValue === '';
+
+  const inputClass = error ? 'invalid' : isTouched && !isEmpty ? 'valid' : '';
 
   return (
     <li className="form__advantages-item" key={field.id}>

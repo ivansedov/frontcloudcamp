@@ -6,6 +6,7 @@ export const AdvantagesList: React.FC = () => {
   const {
     register,
     control,
+    watch,
     formState: { errors, isSubmitted },
   } = useFormContext();
 
@@ -30,6 +31,7 @@ export const AdvantagesList: React.FC = () => {
             errors={errors}
             remove={remove}
             isSubmitted={isSubmitted}
+            watch={watch}
           />
         ))}
         <button
