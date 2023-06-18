@@ -7,12 +7,13 @@ import {
 } from '../../../../redux/slices/formSlice';
 
 const EmailInput: React.FC = () => {
-  const email = useSelector((state: RootState) => state.form.formData.email);
+  const formData = useSelector((state: RootState) => state.form.formData);
   const isEmailValid = useSelector(
     (state: RootState) => state.form.isEmailValid,
   );
   const dispatch = useDispatch();
 
+  const { email } = formData;
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
@@ -20,8 +21,8 @@ const EmailInput: React.FC = () => {
     dispatch(setIsEmailValid(email !== '' && regex.test(email)));
   }, [email, dispatch]);
 
-  const handleChange = (event) => {
-    dispatch(setFormData({ email: event.target.value }));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setFormData({ ...formData, email: event.target.value }));
   };
 
   const toggleInput = () => {

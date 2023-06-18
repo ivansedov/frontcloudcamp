@@ -8,12 +8,13 @@ import {
 import MaskedInput from 'react-text-mask';
 
 const PhoneNumberInput: React.FC = () => {
-  const phone = useSelector((state: RootState) => state.form.formData.phone);
+  const formData = useSelector((state: RootState) => state.form.formData);
   const isPhoneValid = useSelector(
     (state: RootState) => state.form.isPhoneValid,
   );
   const dispatch = useDispatch();
 
+  const { phone } = formData;
   const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
@@ -21,8 +22,8 @@ const PhoneNumberInput: React.FC = () => {
     dispatch(setIsPhoneValid(regex.test(phone)));
   }, [phone, dispatch]);
 
-  const handleChange = (event) => {
-    dispatch(setFormData({ phone: event.target.value }));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setFormData({ ...formData, phone: event.target.value }));
   };
 
   const toggleInput = () => {
