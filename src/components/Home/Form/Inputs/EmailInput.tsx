@@ -45,7 +45,7 @@ const EmailInput: React.FC = () => {
         disabled={!isEnabled}
       />
       {!isEmailValid && (
-        <p className="form__warning">Email введен не корректно</p>
+        <p className="form__warning">Email введен некорректно</p>
       )}
       <button
         className={`form__btn-toggle ${!isEnabled ? 'active' : ''}`}

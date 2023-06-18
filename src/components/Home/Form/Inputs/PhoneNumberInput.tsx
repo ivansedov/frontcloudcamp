@@ -67,7 +67,7 @@ const PhoneNumberInput: React.FC = () => {
         disabled={!isEnabled}
       />
       {!isPhoneValid && (
-        <p className="form__warning">Номер телефона введен не корректно</p>
+        <p className="form__warning">Номер телефона введен некорректно</p>
       )}
       <button
         className={`form__btn-toggle ${!isEnabled ? 'active' : ''}`}
