@@ -8,3 +8,9 @@
   font-size: 14px;
   line-height: 20px;
 }
+
+@media screen and (max-width: 560px) {
+  .form__checkbox-group {
+    margin-top: 16px;
+  }
+}

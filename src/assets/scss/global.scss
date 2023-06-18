@@ -10,6 +10,7 @@ body {
 body {
   background-color: #F4F4F5;
   padding-top: 24px;
+  padding-bottom: 24px;
 
   &.fixed {
     overflow: hidden;
@@ -250,5 +251,24 @@ fieldset {
     width: 20px;
     height: 20px;
     object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 560px) {
+
+  body {
+    padding-bottom: 64px;
+  }
+
+  .box {
+    min-height: auto;
+  }
+
+  .form__nav {
+    margin-top: 48px;
+  }
+
+  .form__field+.form__field {
+    margin-top: 16px;
   }
 }
