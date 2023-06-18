@@ -1,0 +1,40 @@
+.form__textarea-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.form__textarea {
+  min-height: 84px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  width: 100%;
+  padding: 12px;
+  resize: vertical;
+
+  &::-webkit-resizer {
+    background-image: url(../../../assets/img/icons/textarea-resize.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+
+  &.invalid {
+    border: 1px solid #E84E58;
+  }
+
+  &.valid {
+    border: 1px solid #05AE71;
+  }
+}
+
+.form__textarea-counter {
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+  font-size: 14px;
+  line-height: 20px;
+  transform: translateY(100%);
+}

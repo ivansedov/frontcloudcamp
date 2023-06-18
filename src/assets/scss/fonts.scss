@@ -1,0 +1,5 @@
+@import "./abstracts/mixins.scss";
+$path: "/src/assets/fonts/";
+
+@include font-face("SB Sans Interface", "SB-Sans-Interface", $path, 400);
+@include font-face("SB Sans Text", "SB-Sans-Text", $path, 400);

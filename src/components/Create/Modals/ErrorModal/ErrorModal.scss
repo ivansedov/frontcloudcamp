@@ -1,0 +1,70 @@
+.modal-error {
+  .modal-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .btn-close {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 100px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .5s ease;
+    &:hover {
+      background: #E6E6E6;
+    }
+  }
+
+  .icon-container {
+    height: 132px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .icon-wrapper {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: rgba(232, 78, 88, 0.15);
+      border-radius: 100px;
+      width: 80px;
+      height: 80px;
+      animation: pulse 2s infinite;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .icon {
+    width: 38.4px;
+    height: 38.4px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-self: flex-end;
+    margin-top: 24px;
+  }
+}

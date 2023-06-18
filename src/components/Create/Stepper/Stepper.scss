@@ -1,0 +1,85 @@
+.stepper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  height: 8px;
+  margin: 0 auto;
+  width: calc(100% - 16px);
+
+  &__steps {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+  }
+
+  &__step-round {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #A6A6A6;
+    border-radius: 100px;
+    margin-left: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__step--current &__step-round {
+    background: #5558FA;
+
+    &:before {
+      content: '';
+      width: 3.2px;
+      height: 3.2px;
+      border-radius: 100px;
+      background-color: #FFFFFF;
+    }
+  }
+
+  &__step--completed &__step-round {
+    background: #5558FA;
+
+    &:before {
+      content: '';
+      width: 9.6px;
+      height: 8px;
+      background-image: url(../../../assets/img/icons/check.svg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__step-number {
+    position: absolute;
+    transform: translateY(100%);
+    margin-left: -4px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  &__step--current &__step-number,
+  &__step--completed &__step-number {
+    color: #5558FA;
+  }
+
+  &__progress {
+    background: #5558FA;
+    transition: width .8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    height: 100%;
+  }
+
+}
