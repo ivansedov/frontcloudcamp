@@ -1,5 +1,7 @@
 import Modal from '../Modal';
 import './ErrorModal.scss';
+import iconError from '../../../../assets/img/icons/check-error.svg';
+import iconClose from '../../../../assets/img/icons/close.svg';
 
 interface ErrorModalProps {
   onClose: () => void;
@@ -13,7 +15,7 @@ const ErrorModal = ({ onClose }: ErrorModalProps) => {
         <div className="btn-close" onClick={() => onClose()}>
           <img
             className="btn-close__icon"
-            src="/src/assets/img/icons/close.svg"
+            src={iconClose}
             alt="Иконки закрытия модального окна"
             title="Закрыть"
           />
@@ -21,11 +23,7 @@ const ErrorModal = ({ onClose }: ErrorModalProps) => {
       </div>
       <div className="icon-container">
         <div className="icon-wrapper">
-          <img
-            className="icon"
-            src="/src/assets/img/icons/check-error.svg"
-            alt="Иконки ошибки"
-          />
+          <img className="icon" src={iconError} alt="Иконки ошибки" />
         </div>
       </div>
       <button

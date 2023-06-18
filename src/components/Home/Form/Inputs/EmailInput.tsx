@@ -5,6 +5,7 @@ import {
   setIsEmailValid,
   RootState,
 } from '../../../../redux/slices/formSlice';
+import iconDisabled from '../../../../assets/img/icons/disable-eye-inactive.svg';
 
 const EmailInput: React.FC = () => {
   const formData = useSelector((state: RootState) => state.form.formData);
@@ -53,7 +54,7 @@ const EmailInput: React.FC = () => {
       >
         <img
           className="form__btn-toggle-icon"
-          src="/src/assets/img/icons/disable-eye-inactive.svg"
+          src={iconDisabled}
           alt="Иконка для отключения/включения редактирования поля"
           title={isEnabled ? 'Отключить' : 'Включить'}
         />

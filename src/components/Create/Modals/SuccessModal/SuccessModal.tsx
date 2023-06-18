@@ -3,7 +3,7 @@ import Modal from '../Modal';
 import './SuccessModal.scss';
 import { useDispatch } from 'react-redux';
 import { reset } from '../../../../redux/slices/formSlice';
-
+import iconSuccess from '../../../../assets/img/icons/check-success.svg';
 interface SuccessModalProps {
   onClose: () => void;
 }
@@ -23,7 +23,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
         <div className="icon-wrapper">
           <img
             className="icon"
-            src="/src/assets/img/icons/check-success.svg"
+            src={iconSuccess}
             alt="Иконки успешной отправки формы"
           />
         </div>

@@ -5,7 +5,7 @@ import Select, {
   DropdownIndicatorProps,
 } from 'react-select';
 import { useFieldError } from '../../hooks/useFieldError';
-
+import iconSelectIndicator from '../../assets/img/icons/select-indicator.svg';
 interface SelectFieldProps {
   id: string;
   name: string;
@@ -36,7 +36,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({
   > = (props) => {
     return (
       <components.DropdownIndicator {...props}>
-        <img src="src/assets/img/icons/select-indicator.svg" alt="new icon" />
+        <img src={iconSelectIndicator} alt="Иконка индикатора" />
       </components.DropdownIndicator>
     );
   };
