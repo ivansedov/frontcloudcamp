@@ -13,15 +13,18 @@ import { cloudAPI } from '../../services/api';
 import { StepNavigation } from './StepNavigation';
 import SuccessModal from './Modals/SuccessModal/SuccessModal';
 import ErrorModal from './Modals/ErrorModal/ErrorModal';
+import { ObjectSchema } from 'yup';
 
 export const FormStepper: React.FC = () => {
   const dispatch = useDispatch();
-  const [postForm, { isLoading, isError }] = cloudAPI.usePostFormMutation();
+  const [postForm, { isLoading }] = cloudAPI.usePostFormMutation();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const steps = [<StepOne />, <StepTwo />, <StepThree />];
   const step = useSelector((state: RootState) => state.form.step);
-  const currentValidationShema = validationSchema[step - 1];
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const currentValidationShema: ObjectSchema<any> = validationSchema[step - 1];
   const initialState = useSelector((state: RootState) => state.form.formData);
 
   const methods = useForm({
