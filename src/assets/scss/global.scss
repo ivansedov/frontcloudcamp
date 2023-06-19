@@ -150,7 +150,8 @@ fieldset {
 }
 
 .form__input_size_l {
-  width: 300px;
+  max-width: 300px;
+  max-width: 300px;
 }
 
 .form__warning {
@@ -167,7 +168,8 @@ fieldset {
 }
 
 .form__select_size_l {
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .form {
