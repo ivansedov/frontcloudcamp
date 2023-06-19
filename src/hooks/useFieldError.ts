@@ -2,14 +2,14 @@ import { useFormContext } from 'react-hook-form';
 
 export function useFieldError(name: string) {
   const {
-    formState: { errors, isSubmitted },
+    formState: { errors, touchedFields },
     getValues
   } = useFormContext();
 
   const error = errors[name];
-  const isTouched = isSubmitted || error;
+  const isTouched = touchedFields[name];
   const isEmpty = !getValues(name);
-  const inputClass = error ? 'invalid' : isEmpty ? '' : isTouched ? 'valid' : '';
+  const inputClass = error ? 'invalid' : isTouched && !isEmpty ? 'valid' : '';
 
   return { error, inputClass };
 }

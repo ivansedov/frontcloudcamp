@@ -5,6 +5,7 @@ interface InputFieldProps {
   id: string;
   name: string;
   label: string;
+  type?: string;
   placeholder?: string;
 }
 
@@ -12,9 +13,9 @@ export const InputField: React.FC<InputFieldProps> = ({
   id,
   name,
   label,
+  type = 'text',
   placeholder,
 }) => {
-
   const { register } = useFormContext();
   const { error, inputClass } = useFieldError(name);
 
@@ -24,6 +25,7 @@ export const InputField: React.FC<InputFieldProps> = ({
         {label}
       </label>
       <input
+        type={type}
         className={`form__input form__input_size_l ${inputClass}`}
         {...register(name)}
         id={id}

@@ -1,26 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useFormContext, Controller } from 'react-hook-form';
 import './AboutTextArea.scss';
 import { useFieldError } from '../../../hooks/useFieldError';
 
 export const AboutTextArea: React.FC = () => {
-  const [charCount, setCharCount] = useState(0);
-  const { control, watch } = useFormContext();
+  const {
+    control,
+    watch,
+    setValue,
+    formState: { touchedFields },
+  } = useFormContext();
   const { error, inputClass: textAreaClass } = useFieldError('about');
 
   const aboutValue = watch('about');
+  const charCount = aboutValue ? aboutValue.replace(/\s/g, '').length : 0;
+
+  const handleBlur = () => {
+    if (!touchedFields.about) {
+      setValue('about', aboutValue, { shouldTouch: true });
+    }
+  };
 
   useEffect(() => {
-    setCharCount(aboutValue ? aboutValue.replace(/\s/g, '').length : 0);
-  }, [aboutValue]);
-
-  const handleInputChange = (value: string) => {
-    setCharCount(value.replace(/\s/g, '').length);
-  };
+    setValue('about', aboutValue, { shouldTouch: true });
+  }, [aboutValue, setValue]);
 
   return (
     <div className="form__field">
-      <label className="form__label" htmlFor="about">
+      <label className="form__label" htmlFor="field-about">
         About
       </label>
       <div className="form__textarea-wrapper">
@@ -35,10 +42,8 @@ export const AboutTextArea: React.FC = () => {
               rows={4}
               value={field.value}
               placeholder="Placeholder"
-              onChange={(e) => {
-                field.onChange(e);
-                handleInputChange(e.target.value);
-              }}
+              onChange={field.onChange}
+              onBlur={handleBlur}
             />
           )}
         />

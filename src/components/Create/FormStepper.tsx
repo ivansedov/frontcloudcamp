@@ -28,7 +28,7 @@ export const FormStepper: React.FC = () => {
   const initialState = useSelector((state: RootState) => state.form.formData);
 
   const methods = useForm({
-    mode: 'onChange',
+    mode: 'onBlur',
     defaultValues: initialState,
     resolver: yupResolver(currentValidationShema),
   });
