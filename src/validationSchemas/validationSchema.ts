@@ -4,7 +4,7 @@ const validationSchemaStepOne = yup.object().shape({
   nickname: yup
     .string()
     .required('Nickname обязательное поле')
-    .matches(/^[a-zA-Zа-яА-Я]+$/, 'Разрешается использовать только буквы и цифры')
+    .matches(/^[a-zA-Zа-яА-Я]+$/, 'Разрешается использовать только буквы')
     .max(30, 'Максимально 30 символов'),
   name: yup
     .string()
